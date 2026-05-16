@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+/* ═══ Dark Theme (default) ═══ */
+:root,
+[data-theme="dark"] {
+  --c-bg: #040B16;
+  --c-bg-elevated: #060E1A;
+  --c-surface: rgba(10, 26, 47, 0.85);
+  --c-surface-solid: #0A1A2F;
+  --c-border: rgba(30, 64, 112, 0.45);
+  --c-border-strong: rgba(50, 100, 160, 0.5);
+  --c-text: #F0F4F8;
+  --c-text-secondary: #94A3B8;
+  --c-text-muted: #475569;
+  --c-accent: #3B82F6;
+  --c-accent-glow: rgba(59, 130, 246, 0.4);
+  --c-green: #00E676;
+  --c-red: #FF4D4F;
+  --c-yellow: #FAAD14;
+  --c-map-area: #0B1D3A;
+  --c-map-area2: #0A1628;
+  --c-map-border: #1A3A6A;
+  --c-grid-line: rgba(30, 64, 112, 0.15);
+  --c-chart-axis: #1e4070;
+  --c-chart-split: #1e4070;
+  --c-tooltip-bg: rgba(10, 26, 47, 0.95);
+  --c-scrollbar-track: rgba(10, 26, 47, 0.5);
+  --c-scrollbar-thumb: rgba(30, 64, 112, 0.8);
+  --shadow-panel: 0 0 15px rgba(0,0,0,0.5);
+  --shadow-glow: 0 0 20px var(--c-accent-glow);
+}
+
+/* ═══ Light Theme ═══ */
+[data-theme="light"] {
+  --c-bg: #F0F2F5;
+  --c-bg-elevated: #FAFBFC;
+  --c-surface: rgba(255, 255, 255, 0.95);
+  --c-surface-solid: #FFFFFF;
+  --c-border: rgba(148, 163, 184, 0.45);
+  --c-border-strong: rgba(100, 116, 139, 0.4);
+  --c-text: #0F172A;
+  --c-text-secondary: #334155;
+  --c-text-muted: #64748B;
+  --c-accent: #2563EB;
+  --c-accent-glow: rgba(37, 99, 235, 0.12);
+  --c-green: #15803D;
+  --c-red: #B91C1C;
+  --c-yellow: #B45309;
+  --c-map-area: #D5DCE6;
+  --c-map-area2: #E2E8F0;
+  --c-map-border: #94A3B8;
+  --c-grid-line: rgba(148, 163, 184, 0.25);
+  --c-chart-axis: #94A3B8;
+  --c-chart-split: #CBD5E1;
+  --c-tooltip-bg: rgba(255, 255, 255, 0.98);
+  --c-scrollbar-track: rgba(226, 232, 240, 0.6);
+  --c-scrollbar-thumb: rgba(100, 116, 139, 0.4);
+  --shadow-panel: 0 1px 3px rgba(0,0,0,0.08), 0 1px 12px rgba(0,0,0,0.04);
+  --shadow-glow: 0 0 8px var(--c-accent-glow);
+}
+
+@theme {
+  --color-dark-bg: var(--c-bg);
+  --color-dark-panel: var(--c-surface);
+  --color-dark-border: var(--c-border);
+  --color-dark-accent: var(--c-green);
+  --color-dark-danger: var(--c-red);
+  --color-dark-primary: var(--c-accent);
+}
+
+@layer base {
+  body {
+    background-color: var(--c-bg);
+    color: var(--c-text);
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+  }
+}
+
+@utility tech-panel {
+  background-color: var(--c-surface);
+  border: 1px solid var(--c-border);
+  backdrop-filter: blur(12px);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-panel);
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+@utility tech-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: linear-gradient(to right, var(--c-accent), #67e8f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility bg-tech-grid {
+  background-image:
+    linear-gradient(var(--c-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-grid-line) 1px, transparent 1px);
+}
+
+@utility bg-gradient-radial {
+  background: radial-gradient(ellipse at center, var(--c-accent-glow) 0%, transparent 70%);
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--c-scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--c-scrollbar-thumb); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--c-border-strong); }
+
+/* Smooth transitions for theme switch */
+*, *::before, *::after {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.15s ease, box-shadow 0.25s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
