@@ -264,3 +264,5 @@ GET /api/rules/:id/backtest                → 回测结果
 | v1.x | 2026-03 | 初始版本 |
 
 历次修订详情请查看 [VersionLog.md](./VersionLog.md)。
+
+
