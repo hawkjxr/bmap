@@ -1,6 +1,7 @@
 /**
  * 产业链数据转 ECharts 图谱格式
  * 将 store.chainNodes + chainNodeRelations 转换为 ECharts 所需的 categories + nodes + links 格式
+ * 拖拽功能使用 graph + layout: none 模式（参见 IndustryChainV2.tsx）
  */
 
 import type { ChainNode, ChainNodeRelation, ChainTreeNode } from '../data/types';
